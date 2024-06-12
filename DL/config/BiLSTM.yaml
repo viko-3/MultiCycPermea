@@ -1,0 +1,1 @@
+model_type: "LSTM"epochs: 200lr : 0.001batch_size: 32emb_dim: 128hidden_dim: 64num_layers: 2output_dim: 1drop_out: 0.1bidirectional: True

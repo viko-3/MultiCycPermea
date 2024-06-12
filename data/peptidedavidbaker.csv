@@ -1,0 +1,14 @@
+CycPeptMPDB_index,CycPeptMPDB_ID,SMILES,Permeability,Path,image_path
+0,aaam8,CN1CC(=O)N[C@@H](CC(C)(C)C)C(=O)N[C@@H](Cc2c(F)c(F)c(F)c(F)c2F)C(=O)NCc2ccccc2CC1=O,-5.47,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aaam8.png
+1,aaap1,CC[C@H]1NC(=O)[C@H]2Cc3c([nH]c4ccccc34)CN2C(=O)Cc2cccc(c2)CNC(=O)[C@@H]2CCCCN2C1=O,-5.17,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aaap1.png
+2,aaap2,CCN1CC(=O)N([C@@H](C)c2ccccc2)CC(=O)NCc2cccc(c2)CC(=O)N2CCCC[C@@H]2C1=O,-5.13,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aaap2.png
+4,asbc3,CC[C@H]1C(=O)N[C@H](C(N)=O)CSCC(=O)N[C@@H](CC(C)C)CC(=O)Nc2ccccc2C(=O)N1C,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/asbc3.png
+5,aaag1,C[C@H]1NC(=O)CC[C@H](C(N)=O)NC(=O)[C@@H](Cc2ccccc2)NC(=O)[C@H]2Cc3ccccc3CN2C1=O,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aaag1.png
+6,aaag4,NC(=O)[C@@H]1CCC(=O)N2CCCC[C@H]2C(=O)N2Cc3ccccc3C[C@H]2C(=O)N[C@@H](CO)C(=O)N1,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aaag4.png
+7,aabi3,C[C@H]1CC(=O)Nc2ccccc2CC(=O)N2Cc3ccccc3C[C@@H]2C(=O)N(C)[C@@H](C)C(=O)N1,-5.85,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aabi3.png
+8,aabi5,C[C@@H]1CC(=O)Nc2ccccc2CC(=O)N2CCc3ccccc3[C@H]2C(=O)N(C)[C@H](CO)C(=O)N1,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aabi5.png
+9,aabc1,O=C1C[C@@H]2CCCN2C(=O)[C@@H](Cc2ccccc2)NC(=O)[C@@H]2CCN2C(=O)c2ccccc2N1,-5.74,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aabc1.png
+10,aabc2,CC(C)C[C@@H]1NC(=O)[C@@H](CC(C)(C)C)NC(=O)c2ccccc2NC(=O)C[C@H](C(C)C)NC1=O,-5.64,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aabc2.png
+11,aagb1,C[C@H]1CC(=O)N2C[C@H](F)C[C@H]2C(=O)N(C)[C@H](CO)C(=O)NCC2(CCCCC2)CC(=O)N1,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/aagb1.png
+12,akak1,O=C1NCc2cccc(c2)C(=O)N2CCC[C@H]2C(=O)NCc2cccc(c2)C(=O)N2CCC[C@@H]12,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/akak1.png
+13,bbbb3,CC(C)[C@H]1CC(=O)N[C@H]2CCCC[C@H]2C(=O)N[C@@H](c2ccccc2)CC(=O)N2CCC[C@H]2CC(=O)N1,-7.0,,/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images/bbbb3.png
