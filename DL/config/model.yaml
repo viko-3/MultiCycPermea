@@ -1,0 +1,1 @@
+data_yaml:  text_data_yaml: "./config/smi_dataset.yaml"  image_data_yaml: "./config/img_dataset.yaml"model_yaml:  text_model_yaml: "./config/Transformer.yaml"  image_model_yaml: "./config/TIMM.yaml"  use_text_info: True  use_image_info: True  use_fingerprint_info: False  feature_cmb_type: concate #concate,cross_attention,attention,...

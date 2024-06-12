@@ -1,0 +1,4 @@
+image_folder: "/work/data1/wangzixu/data/cycle_peptide/cycle_peptide_image_png"
+#image_folder:  "/work/data1/wangzixu/backup/cyy/jmc_lee2023/generate_images" #"/work/data1/wangzixu/backup/cyy/jacs_faris_cyclepeptide/generate_images"
+#image_folder: '/work/data1/wangzixu/backup/davidbaker_cyclepeptide/generate_images'
+augmentation: True

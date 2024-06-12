@@ -1,0 +1,11 @@
+model_type: "CNN"
+epochs: 200
+lr : 0.0001
+batch_size: 32
+emb_dim: 32
+hidden_dim: 32
+num_layers: 4
+output_dim: 1
+drop_out: 0.1
+n_filters: 1
+filter_sizes: [2, 3, 4]
