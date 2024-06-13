@@ -626,5 +626,4 @@ def analyze_feature(img_feature, text_feature, similarity):
             feature_similarity_matrix[i, j] = res
 
     draw_feature_distance(feature_similarity_matrix.view(-1) ,similarity.view(-1) )
-    print()
-    pass
+    

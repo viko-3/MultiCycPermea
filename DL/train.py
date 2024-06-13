@@ -13,7 +13,6 @@ from contextlib import nullcontext
 
 def train(model, train_loader, test_loader, val_loader, text_optimizer, image_optimizer, other_optimizer, criterion,
           device, epochs, writer, log_file):
-    best_criterion = 100
     for epoch in range(epochs):
         if epoch % 10 == 0:  # Every 10 epochs
             writer.flush()
@@ -81,6 +80,33 @@ def train(model, train_loader, test_loader, val_loader, text_optimizer, image_op
         # Test
         model.eval()
 
+
+        val_loss = 0
+        all_y_true = []
+        all_y_pred = []
+        with context_manager and torch.no_grad():
+            for batch_idx, (data, target, length, image, fg, weight,_) in enumerate(tqdm(val_loader, desc="Val batches")):
+                data = data.to(device)
+                target = target.to(device)
+                image = image.to(device) if image[0] is not None else image
+                fg = fg.to(device)
+                weight = weight.to(device)
+
+                output, CL_loss = model(data, image, length, fg, weight)
+                output = output.cpu().flatten()
+
+                target = target.view(-1, 1).cpu().flatten()
+
+                # R2
+                all_y_true.append(target)
+                all_y_pred.append(output)
+        val_R2_score = r2_score(torch.cat(all_y_true), torch.cat(all_y_pred))
+        val_loss = mse(torch.cat(all_y_true), torch.cat(all_y_pred))
+        print(f"Epoch {epoch + 1}/{epochs}, Val Loss: {val_loss:.4f}, R2_score: {val_R2_score:.4f}")
+
+        writer.add_scalar('val loss', val_loss, epoch + 1)
+        writer.add_scalar('val R2_score', val_R2_score, epoch + 1)
+        
         test_loss = 0
         all_y_true = []
         all_y_pred = []
@@ -118,41 +144,4 @@ def train(model, train_loader, test_loader, val_loader, text_optimizer, image_op
         writer.add_scalar('test pcc', test_pearsonr, epoch + 1)
         writer.add_scalar('test scc', test_spearmanr, epoch + 1)
 
-        val_loss = 0
-        all_y_true = []
-        all_y_pred = []
-        with context_manager and torch.no_grad():
-            for batch_idx, (data, target, length, image, fg, weight,_) in enumerate(tqdm(val_loader, desc="Val batches")):
-                data = data.to(device)
-                target = target.to(device)
-                image = image.to(device) if image[0] is not None else image
-                fg = fg.to(device)
-                weight = weight.to(device)
-
-                output, CL_loss = model(data, image, length, fg, weight)
-                output = output.cpu().flatten()
-
-                target = target.view(-1, 1).cpu().flatten()
-
-                # R2
-                all_y_true.append(target)
-                all_y_pred.append(output)
-        val_R2_score = r2_score(torch.cat(all_y_true), torch.cat(all_y_pred))
-        val_loss = mse(torch.cat(all_y_true), torch.cat(all_y_pred))
-        print(f"Epoch {epoch + 1}/{epochs}, Val Loss: {val_loss:.4f}, R2_score: {val_R2_score:.4f}")
-
-        if test_criterion < best_criterion:
-            best_criterion = test_criterion
-            torch.save(model.state_dict(), os.path.join(os.path.splitext(log_file)[0], 'best_model.pth'))
-            print("current best model: test_loss:{:.4f},R2_score:{:.4f},PCC:{:.4f}".format(test_loss, test_R2_score,
-                                                                                           test_pearsonr))
-
-        writer.add_scalar('val loss', val_loss, epoch + 1)
-        writer.add_scalar('val R2_score', val_R2_score, epoch + 1)
-
-        with open(log_file, "a") as f:
-            f.write(f"Epoch {epoch + 1}/{epochs}, Train Loss: {loss:.4f}\n")
-            f.write(f"Epoch {epoch + 1}/{epochs}, Test Loss: {test_loss:.4f}, Test_R2_score: {test_R2_score: 4f}\n,"
-                    f" Test_mae: {test_mae:.4f}, Test PCC: {test_pearsonr:.4f}, Test SCC: {test_spearmanr:.4f}\n")
-            f.write(f"Epoch {epoch + 1}/{epochs}, Val Loss: {val_loss:.4f}, Val_R2_score: {val_R2_score: 4f}\n")
-    print("current best model:", best_criterion)
+        

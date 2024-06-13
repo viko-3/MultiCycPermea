@@ -310,15 +310,11 @@ class ImageEncoder(nn.Module):
             self.transformer.head = nn.Identity()
 
             if model_name == "swin_molscribe" and pretrained:
-                molscribe_path = "/work/data1/cyy/wzx_utils/ckpt/swin_base_char_aux_200k.pth"
-                pretrained_dict = torch.load(molscribe_path, map_location=torch.device('cpu'))["encoder"]
-                print("load ckpt from pretrained molecular recognition model molscribe")
+                pretrain_path = "../image_encoder.pth"
+                pretrained_dict = torch.load(molscribe_path, map_location=torch.device('cpu'))
+                print("load ckpt from pretrained image encoder)
 
-                def remove_prefix(state_dict):
-                    return {k.replace('module.transformer.', ''): v for k, v in state_dict.items()}
-
-                self.transformer.load_state_dict(remove_prefix(pretrained_dict), strict=False)
-
+                self.transformer.load_state_dict(pretrained_dict, strict=False)
 
         elif 'efficientnet' in model_name:
             self.model_type = 'efficientnet'
@@ -523,7 +519,7 @@ class Peptide_Regression(nn.Module):
                 all_feature = torch.cat((image_feature, text_feature), dim=-1)
                 logits = self.mlp(all_feature)
 
-                # 对比学习
+                # contrastive learning
                 CL_loss = BatchAllTtripletLoss_multi_module_version()(text_feature, image_feature, weight=None)
                 if return_feature:
                     return logits, CL_loss,image_feature, text_feature
