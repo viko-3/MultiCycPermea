@@ -193,7 +193,7 @@ class SMILESDataset(Dataset):
 
 
 def get_similarity_matrix():
-    similarity_matrix_df = pd.read_pickle('/home/s2136015/Code/wzx_utils/data/remove_strange_values/similarity.pkl')
+    similarity_matrix_df = pd.read_pickle('KG.pkl')
     return similarity_matrix_df
 
 
