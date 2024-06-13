@@ -1,6 +1,6 @@
-train_data_path: '/home/s2136015/Code/wzx_utils/data/remove_strange_values/train.csv'
-test_data_path: '/home/s2136015/Code/wzx_utils/data/remove_strange_values/test.csv'
-val_data_path: '/home/s2136015/Code/wzx_utils/data/remove_strange_values/val.csv'
+train_data_path: 'data/remove_strange_values/train.csv'
+test_data_path: 'data/remove_strange_values/test.csv'
+val_data_path: 'data/remove_strange_values/val.csv'
 data_type: "SMILES"
 target: "Permeability"
 max_len: 250
