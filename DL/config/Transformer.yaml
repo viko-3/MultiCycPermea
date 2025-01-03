@@ -1,0 +1,10 @@
+model_type: "Transformer"
+epochs: 200
+lr : 0.0001
+batch_size: 32
+emb_dim: 256
+hidden_dim: 256
+output_dim: 1
+num_head: 8
+num_layers: 8
+drop_out: 0.1

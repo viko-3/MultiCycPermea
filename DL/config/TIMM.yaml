@@ -1,0 +1,4 @@
+model_type: "image_encoder"
+image_size: 384
+pretrained: True
+lr : 0.0001

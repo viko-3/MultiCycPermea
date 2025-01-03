@@ -1,0 +1,2 @@
+image_folder: "data/cycle_peptide/cycle_peptide_image_png"
+augmentation: True
